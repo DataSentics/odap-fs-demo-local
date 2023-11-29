@@ -57,7 +57,7 @@ df_bikes.display()
 
 # MAGIC %md
 # MAGIC
-# MAGIC ## Schema
+# MAGIC ## Schema definition
 
 # COMMAND ----------
 
@@ -74,13 +74,24 @@ df_people_cast = df_people.select(
 
 # COMMAND ----------
 
-df_bikes_cast = df_bikes.select(
-    F.col("instant").astype(T.StringType()),
-    F.to_date(F.col("dteday"), "yyyy-MM-dd").alias("date"),
+# MAGIC %md
+# MAGIC
+# MAGIC Stations: use hourly records to mock 24 different stations
+
+# COMMAND ----------
+
+DAYS_ADD = 4290  # shift to make the data look more recent
+
+
+df_bikes_cast = df_bikes.withColumn("instant", F.col("instant").cast(T.IntegerType()))
+
+df_bikes_cast = df_bikes_cast.select(
+    F.col("instant").astype(T.IntegerType()),
+    F.col("hr").alias("station_id").astype(T.IntegerType()),
+    F.date_add(F.to_date(F.col("dteday"), "yyyy-MM-dd"), DAYS_ADD).alias("date"),
     F.col("season").astype(T.StringType()),
     F.col("yr").alias("year").astype(T.IntegerType()),
     F.col("mnth").alias("month").astype(T.IntegerType()),
-    F.col("hr").alias("hour").astype(T.IntegerType()),
     F.col("weekday").astype(T.StringType()),
     F.col("weathersit").alias("weather_situation").astype(T.IntegerType()),
     F.col("hum").alias("humidity").astype(T.FloatType()),
