@@ -4,6 +4,7 @@ parameters:
       - path: "./features_person"
         prefix: "local"
 
+    preview_catalog: "on"
     catalog: "{write_env}"
     database: "nn_demo_features_{entity}"
 

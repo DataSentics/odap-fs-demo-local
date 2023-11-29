@@ -1,9 +1,10 @@
 parameters:
   featurefactory:
     feature_sources:
-      - path: "./features_person"
+      - path: "./features_station"
         prefix: "local"
 
+    preview_catalog: "on"
     catalog: "{write_env}"
     database: "nn_demo_features_{entity}"
 
@@ -17,6 +18,7 @@ parameters:
     checkpoint_interval: 5
 
     entities:
-      person:
-        id_column: "person_id"
+      station:
+        id_column: "station_id"
         id_column_type: "long"
+
