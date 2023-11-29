@@ -57,7 +57,20 @@ df_bikes.display()
 
 # MAGIC %md
 # MAGIC
-# MAGIC ## Processing
+# MAGIC ## Schema
+
+# COMMAND ----------
+
+df_people_cast = df_people.select(
+    F.col("id").astype(T.IntegerType()),
+    F.col("firstName").alias("first_name").astype(T.StringType()),
+    F.col("middleName").alias("middle_name").astype(T.StringType()),
+    F.col("lastName").alias("last_name").astype(T.StringType()),
+    F.col("gender").astype(T.StringType()),
+    F.col("birthDate").alias("birth_date").astype(T.TimestampType()),
+    F.col("ssn").astype(T.StringType()),
+    F.col("salary").astype(T.IntegerType()),
+)
 
 # COMMAND ----------
 
@@ -91,7 +104,7 @@ spark.sql(f"CREATE DATABASE IF NOT EXISTS {CATALOG}.{DB}")
 
 table_people = f"{CATALOG}.{DB}.{TABLE_POEPLE}"
 
-df_people.write.mode("overwrite").option("overwriteSchema", True).saveAsTable(table_people)
+df_people_cast.write.mode("overwrite").option("overwriteSchema", True).saveAsTable(table_people)
 
 # COMMAND ----------
 
