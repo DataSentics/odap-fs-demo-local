@@ -36,22 +36,13 @@ df_people = spark.read.table("dev.odap_demo_nn.people")
 
 # COMMAND ----------
 
-# MAGIC %md
-# MAGIC
-# MAGIC ## Parameters
-
-# COMMAND ----------
-
-# TODO
-
-# COMMAND ----------
-
 # MAGIC %md 
 # MAGIC
 # MAGIC ## Feature logic
 
 # COMMAND ----------
 
+# real SSN validity check if needed
 def _check_ssn(ssn: str):
     return (
         len(ssn) == 11
@@ -62,9 +53,11 @@ def _check_ssn(ssn: str):
         and ssn[7:].isdigit()
     )
 
+# COMMAND ----------
+
 @F.pandas_udf(T.BooleanType())
 def is_ssn_valid(s: pd.Series) -> pd.Series:
-    return s.apply(_check_ssn)
+    return s.apply(lambda x: True)
 
 # COMMAND ----------
 
@@ -78,9 +71,6 @@ def get_age(day_of_birth, format="yyyy-MM-dd"):
 df_people_features = df_people.withColumn("ssn_valid", is_ssn_valid("ssn")).withColumn(
     "age", get_age("birth_date")
 )
-
-
-df_people_features.display()
 
 # COMMAND ----------
 

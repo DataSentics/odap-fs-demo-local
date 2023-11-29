@@ -50,5 +50,3 @@ df_final = df_stations.select(
     "humidity", 
     "wind_speed",
 )
-
-df_final.display()

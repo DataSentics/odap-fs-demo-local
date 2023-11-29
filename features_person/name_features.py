@@ -26,10 +26,6 @@ dbutils.widgets.text("timestamp", "2023-01-01")
 
 # COMMAND ----------
 
-# TODO: parameters
-
-# COMMAND ----------
-
 # MAGIC %md
 # MAGIC
 # MAGIC ## Read data
@@ -66,5 +62,3 @@ df_final = df_people.select(
         for col in ["first_name", "middle_name", "last_name"]
     ],
 )
-
-df_final.display()
