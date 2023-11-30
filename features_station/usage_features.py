@@ -31,8 +31,7 @@ dbutils.widgets.text("timestamp", "2023-11-25")
 
 # COMMAND ----------
 
-# required_daily = get_param("usage_params")["daily_requirement"]
-required_daily = 20
+required_daily = get_param("usage_params")["daily_requirement"]
 
 # COMMAND ----------
 
@@ -56,7 +55,7 @@ df_stations = spark.read.table("dev.odap_demo_nn.bike_stations").filter(
 
 metadata = {
     "table": "features",
-    "category": "environment",
+    "category": "stats",
     "features": {
         "usage_{user_type}": {
             "description": "Number of types the station was used by {user_type} users",

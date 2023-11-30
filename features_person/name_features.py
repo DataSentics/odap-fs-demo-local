@@ -43,8 +43,8 @@ df_people = spark.read.table("dev.odap_demo_nn.people")
 # COMMAND ----------
 
 metadata = {
-    "table": "features",
-    "category": "general",
+    "table": "features_name",
+    "category": "name",
     "features": {
         "len_{pos}_name": {
             "description": "Number of characters in person's {pos} name",
