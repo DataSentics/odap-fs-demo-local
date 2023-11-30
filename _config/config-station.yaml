@@ -3,12 +3,12 @@ parameters:
     feature_sources:
       - path: "./features_station"
         prefix: "local"
-      - path: "../nn-odap-fs-demo-global/features_station"
+      - path: "../odap-fs-demo-global/features_station"
         prefix: "global"
 
     preview_catalog: "on"
     catalog: "{write_env}"
-    database: "nn_demo_features_{entity}"
+    database: "fs_demo_features_{entity}"
 
     features:
       latest_table: "features_latest"
