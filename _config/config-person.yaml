@@ -3,6 +3,8 @@ parameters:
     feature_sources:
       - path: "./features_person"
         prefix: "local"
+      - path: "../nn-odap-fs-demo-global/features_person"
+        prefix: "global"
 
     preview_catalog: "on"
     catalog: "{write_env}"

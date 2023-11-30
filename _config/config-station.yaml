@@ -3,6 +3,8 @@ parameters:
     feature_sources:
       - path: "./features_station"
         prefix: "local"
+      - path: "../nn-odap-fs-demo-global/features_station"
+        prefix: "global"
 
     preview_catalog: "on"
     catalog: "{write_env}"
@@ -21,4 +23,7 @@ parameters:
       station:
         id_column: "station_id"
         id_column_type: "long"
+
+    usage_params:
+      daily_requirement: 100
 
