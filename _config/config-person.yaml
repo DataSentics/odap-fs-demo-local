@@ -5,6 +5,10 @@ parameters:
         prefix: "local"
       - path: "../odap-fs-demo-global/features_person"
         prefix: "global"
+        include_notebooks: 
+          - "*"
+        exclude_notebooks:
+          - "social_class_features"
 
     preview_catalog: "on"
     catalog: "{write_env}"
