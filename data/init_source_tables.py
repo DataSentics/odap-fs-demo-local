@@ -23,8 +23,8 @@ N_ROWS_BIKES = 10_000
 
 # COMMAND ----------
 
-CATALOG = "dev"
-DB = "odap_demo_nn"
+CATALOG = "hive_metastore"
+DB = "fs_demo_data"
 
 TABLE_POEPLE = "people"
 TABLE_BIKES = "bike_stations"

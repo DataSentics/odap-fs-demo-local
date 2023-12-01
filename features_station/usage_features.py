@@ -41,7 +41,7 @@ required_daily = get_param("usage_params")["daily_requirement"]
 
 # COMMAND ----------
 
-df_stations = spark.read.table("dev.odap_demo_nn.bike_stations").filter(
+df_stations = spark.read.table("fs_demo_data.bike_stations").filter(
     F.col("date") == F.to_date(F.lit(dbutils.widgets.get("timestamp")))
 ).drop_duplicates(subset=["station_id", "date"])
 

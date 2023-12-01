@@ -32,7 +32,7 @@ dbutils.widgets.text("timestamp", "2023-01-01")
 
 # COMMAND ----------
 
-df_people = spark.read.table("dev.odap_demo_nn.people")
+df_people = spark.read.table("fs_demo_data.people")
 
 # COMMAND ----------
 

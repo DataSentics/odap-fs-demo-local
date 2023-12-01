@@ -10,8 +10,7 @@ parameters:
         exclude_notebooks:
           - "social_class_features"
 
-    preview_catalog: "on"
-    catalog: "{write_env}"
+    catalog: "hive_metastore"
     database: "fs_demo_features_{entity}"
 
     features:

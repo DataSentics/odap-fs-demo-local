@@ -6,8 +6,7 @@ parameters:
       - path: "../odap-fs-demo-global/features_station"
         prefix: "global"
 
-    preview_catalog: "on"
-    catalog: "{write_env}"
+    catalog: "hive_metastore"
     database: "fs_demo_features_{entity}"
 
     features:
